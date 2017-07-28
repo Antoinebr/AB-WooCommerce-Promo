@@ -2,7 +2,7 @@
 /**
 * Plugin Name: AB WooCommerce Promo
 * Plugin URI: http://antoinebrossault.com
-* Description: This plugin allow you to offer a product on WC when requirements are fulfilled
+* Description: Tgit remote add origin https://github.com/Antoinebr/AB-WooCommerce-Promo.git
 * Version: 1
 * Author: Antoine Brossault
 */
@@ -44,7 +44,6 @@ class AbwcPromo
         
         return ( 
 
-
             $this->WC_Cart->total >= $this->minPrice  
             && 
 
@@ -83,7 +82,8 @@ class AbwcPromo
 
          foreach($this->WC_Cart->get_cart() as $cart_item_key => $values ) {
 
-            if($this->giftItem->id == $values['data']->id) $alreadyAdded = true;
+            if($this->giftItem->id == $values['data']->id) 
+                $alreadyAdded = true;
 
          }
 
@@ -144,7 +144,6 @@ class AbwcPromo
 
         if( $this->is_promo_can_be_added_soon() ) {
             
-
             wc_add_notice( "<i class='fa fa-info-circle fa-1x'></i> Achetez un bracelet supplémentaire pour obtenir un outil pour bracelet de montre gratuit !", 'success' );
         
         }
