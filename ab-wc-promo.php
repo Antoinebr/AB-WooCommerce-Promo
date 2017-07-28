@@ -39,7 +39,7 @@ class AbwcPromo
 
 
 
-    public function is_promo_admisible()
+    private function is_promo_admisible()
     {
         
         return ( 
@@ -59,7 +59,7 @@ class AbwcPromo
 
 
 
-    public function is_promo_can_be_added_soon()
+    private function is_promo_can_be_added_soon()
     {
         
         return ( 
@@ -75,25 +75,25 @@ class AbwcPromo
 
 
 
-     public function is_gift_already_added()
+     private function is_gift_already_added()
      {
         
-        $alreadyAdded = false;
+        $isAlreadyAdded = false;
 
          foreach($this->WC_Cart->get_cart() as $cart_item_key => $values ) {
 
             if($this->giftItem->id == $values['data']->id) 
-                $alreadyAdded = true;
+                $isAlreadyAdded = true;
 
          }
 
-         return $alreadyAdded;
+         return $isAlreadyAdded;
 
      }
 
 
 
-     public function is_gift_in_stock()
+     private function is_gift_in_stock()
      {
 
         return ($this->giftItem->stock_status === 'instock') ? true : false;
@@ -102,7 +102,7 @@ class AbwcPromo
 
 
 
-    public function add_gift_to_cart()
+    private function add_gift_to_cart()
     {
 
         return $this->WC_Cart->add_to_cart($this->giftItem->id,1);
@@ -111,7 +111,7 @@ class AbwcPromo
 
 
 
-    public function remove_gift_from_cart()
+    private function remove_gift_from_cart()
     {
 
         $cartId = $this->WC_Cart->generate_cart_id($this->giftItem->id);
